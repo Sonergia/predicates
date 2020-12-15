@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Sonergia\Predicates;
-
 
 class IsFalsePredicate extends AbstractPredicate
 {

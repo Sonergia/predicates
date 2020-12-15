@@ -119,16 +119,15 @@ class Aggregate extends AbstractPredicate
      */
     private function resolveAnd(): bool
     {
-        $success = true;
-        for ($i = 0, $countPredicates = count($this->predicates); $success && $i < $countPredicates; $i++) {
-            $currentPredicate = $this->predicates[$i];
-            $success = $currentPredicate->evaluate();
+        foreach ($this->predicates as $predicate){
+            $success = $predicate->evaluate();
             if (!$success) {
-                $this->addFailure($currentPredicate);
+                $this->addFailure($predicate);
+                return false;
             }
         }
 
-        return $success;
+        return true;
     }
 
     /**
@@ -136,15 +135,14 @@ class Aggregate extends AbstractPredicate
      */
     private function resolveOr(): bool
     {
-        $success = false;
-        for ($i = 0, $countPredicates = count($this->predicates); !$success && $i < $countPredicates; $i++) {
-            $currentPredicate = $this->predicates[$i];
-            $success = $currentPredicate->evaluate();
-            if (!$success) {
-                $this->addFailure($currentPredicate);
+        foreach ($this->predicates as $predicate){
+            $success = $predicate->evaluate();
+            if($success){
+                return true;
             }
+            $this->addFailure($predicate);
         }
-        return $success;
+        return false;
     }
 
     /**
