@@ -2,13 +2,14 @@
 
 namespace Sonergia\Predicates;
 
+use Countable;
 use Sonergia\Predicates\Contracts\FailureAwareContract;
 use Sonergia\Predicates\Contracts\PredicateContract;
 use Sonergia\Predicates\Contracts\ResolutionAwareContract;
 use Sonergia\Predicates\Traits\ResolutionAwareTrait;
 use Exception;
 
-abstract class AbstractPredicate implements PredicateContract, FailureAwareContract, ResolutionAwareContract, \Countable
+abstract class AbstractPredicate implements PredicateContract, FailureAwareContract, ResolutionAwareContract, Countable
 {
     use ResolutionAwareTrait;
 

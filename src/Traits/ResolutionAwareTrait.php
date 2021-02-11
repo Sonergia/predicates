@@ -9,7 +9,7 @@ trait ResolutionAwareTrait
     /**
      * @var null|bool
      */
-    private $resolvedValue = null;
+    private $resolvedValue;
 
     /**
      * @param bool $resolvedValue
