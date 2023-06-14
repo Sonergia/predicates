@@ -1,7 +1,7 @@
 {
     "name": "sonergia/predicates",
     "description": "Functionnal way to handle predicates in PHP",
-    "version": "1.1.1",
+    "version": "1.2.0",
     "type": "library",
     "license": "MIT",
     "require-dev": {
@@ -16,7 +16,7 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "php": "^7.2"
+        "php": ">=7.2"
     },
     "autoload": {
         "psr-4": {
